@@ -1,0 +1,23 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "A program for the user to generate a README.md",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kel03-byte/readme-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kel03-byte/readme-generator/issues"
+  },
+  "homepage": "https://github.com/Kel03-byte/readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
