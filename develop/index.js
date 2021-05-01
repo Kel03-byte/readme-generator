@@ -62,7 +62,7 @@ inquirer.prompt([
     },
     {
         type: 'input',
-        message: 'What is your email address so developers and users can contact you for any questions?',
+        message: 'What is your email address?',
         name: 'email',
         validate: email => {
             if (!email) {
@@ -73,52 +73,17 @@ inquirer.prompt([
         }
     },
     {
-        type: 'checkbox',
-        message: 'Which LICENSE are you going to use for your project (check all that apply)?',
+        type: 'list',
+        message: 'Which LICENSE are you going to use for your project?',
         name: 'license',
-        choices: ['MIT', 'Apache', 'GNU General Public', 'Boost Software', 'Creative Commons', 'Eclipse Public', 'Mozilla Public', 'The Unlicense']
+        choices: ['MIT', 'Apache', 'GNU', 'Boost', 'CCO', 'EPL', 'Mozilla', 'Unlicense']
     },
 ])
     .then((response) => {
         const { title, description, installation, usage, contributing, tests, gitHubName, email, license } = response;
 
-        function createLicenseBadge(license) {
-            if (license === 'MIT') {
-                return "![image](https://img.shields.io/badge/License-MIT-blue.svg)(https://opensource.org/licenses/MIT)";
-            }
-
-            if (license === 'Boost Software') {
-                return "![image](https://img.shields.io/badge/License-Boost%20Software%201.0-blue.svg)(https://www.boost.org/LICENSE_1_0.txt)";
-            }
-
-            if (license === 'GNU General Public') {
-                return "![image](https://img.shields.io/badge/License-GPL%20v2-blue.svg)(https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html";
-            }
-
-            if (license === 'Apache') {
-                return "![image](https://img.shields.io/badge/License-Apache%202.0-blue.svg)(https://opensource.org/licenses/Apache-2.0)";
-            }
-
-            if (license === 'Creative Commons') {
-                return "![image](https://img.shields.io/badge/License-CC0%201.0-blue.svg)(http://creativecommons.org/publicdomain/zero/1.0/)";
-            }
-
-            if (license === 'Eclipse Public') {
-                return "![image](https://img.shields.io/badge/License-EPL%202.0-blue.svg)(https://opensource.org/licenses/EPL-2.0)";
-            }
-
-            if (license === 'Mozilla Public') {
-                return "![image](https://img.shields.io/badge/License-MPL%202.0-blue.svg)(https://opensource.org/licenses/MPL-2.0)";
-            }
-
-            if (license === 'The Unlicense') {
-                return "![image](https://img.shields.io/badge/License-Unlicense-blue.svg)(http://unlicense.org/)";
-            }
-            return license.join(' ')
-        }
-
         fs.writeFile("README.md", "# " + title + "\n"
-            + createLicenseBadge(license) + "\n"
+            + "![image](https://img.shields.io/badge/License-" + license + "-blue.svg)\n"
             + "## Description\n" + description + "\n"
             + "## Table Of Contents\n"
             + "* [Installation](#installation)\n"
@@ -135,8 +100,8 @@ inquirer.prompt([
             + contributing + "\n"
             + "## Tests\n"
             + tests + "\n"
-            + "## License/s\n"
-            + "This project is licensed by " + license.join(', ') + " license/s"
+            + "## License\n"
+            + "This project is licensed by " + license+ " license"
             + "\n ## Questions\n"
             + "Any questions or errors? Contact me at https://github.com/" + gitHubName + " or email me at " + email,
             function (err) {
