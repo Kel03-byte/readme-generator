@@ -45,7 +45,7 @@ inquirer.prompt([
     },
     {
         type: 'input',
-        message: 'Tests your project (optional)?',
+        message: 'How can developers test your project (optional)?',
         name: 'tests',
     },
     {
@@ -90,7 +90,7 @@ inquirer.prompt([
             + "* [Usage](#usage)\n"
             + "* [Contributing](#contributing)\n"
             + "* [Tests](#tests)\n"
-            + "* [License](#license/s)\n"
+            + "* [License](#license)\n"
             + "* [Questions](#questions)\n"
             + "## Installation\n"
             + installation + "\n"
