@@ -28,25 +28,31 @@ inquirer.prompt([
     },
     {
         type: 'input',
-        message: 'How do people install your project (optional)?',
+        message: 'How do people install your project? (optional)',
         name: 'installation',
 
     },
     {
         type: 'input',
-        message: 'What are the instructions to use the project (optional)?',
+        message: 'What are the instructions to use the project? (optional)',
         name: 'usage',
 
     },
     {
         type: 'input',
-        message: 'How can developers contribute to your project (optional)?',
+        message: 'How can developers contribute to your project? (optional)',
         name: 'contributing',
     },
     {
         type: 'input',
-        message: 'How can developers test your project (optional)?',
+        message: 'How can developers test your project? (optional)',
         name: 'tests',
+    },
+    {
+        type: 'list',
+        message: 'Which LICENSE do you want to use for your project? (up/down key to navigate, space to select, enter to confirm)(optional)',
+        name: 'license',
+        choices: ['MIT', 'Apache', 'GNU', 'Boost', 'CCO', 'EPL', 'Mozilla', 'Unlicense']
     },
     {
         type: 'input',
@@ -72,15 +78,17 @@ inquirer.prompt([
             }
         }
     },
-    {
-        type: 'list',
-        message: 'Which LICENSE are you going to use for your project?',
-        name: 'license',
-        choices: ['MIT', 'Apache', 'GNU', 'Boost', 'CCO', 'EPL', 'Mozilla', 'Unlicense']
-    },
 ])
     .then((response) => {
-        const { title, description, installation, usage, contributing, tests, gitHubName, email, license } = response;
+        const { title,
+            description,
+            installation,
+            usage,
+            contributing,
+            tests,
+            gitHubName,
+            email,
+            license } = response;
 
         fs.writeFile("README.md", "# " + title + "\n"
             + "![image](https://img.shields.io/badge/License-" + license + "-blue.svg)\n"
@@ -101,7 +109,7 @@ inquirer.prompt([
             + "## Tests\n"
             + tests + "\n"
             + "## License\n"
-            + "This project is licensed by " + license+ " license"
+            + "This project is licensed by " + license + " license"
             + "\n ## Questions\n"
             + "Any questions or errors? Contact me at https://github.com/" + gitHubName + " or email me at " + email,
             function (err) {
