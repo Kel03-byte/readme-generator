@@ -1,16 +1,46 @@
 # Readme Generator
+
+![license](https://img.shields.io/badge/License-MIT-blue.svg)
+
+## Table of Contents
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Links](#links)
+- [Screenshots](#screenshots)
+
 ## Description
-A program for the user to easily generate a README file for their project
 
-## Screenshots
-A screenshot of the terminal in action and the example README file
+A program to help the user generate a README file for their project!
 
-![image](./assets/screenshot1.png)
+This app uses:
+* Inquirer
+* Javascript
 
-![image](./assets/screenshot2.png)
+## Installation
+
+* Clone the Repository
+* Open up your terminal and change into the cloned folder
+* Type "npm i" to install the dependancies
+* Type "npm start' to start the App!
 
 ## Usage
-Here is a link to a short video explaining how it all works!
+
+This App is not a live site therefore the below video will show how to run and use it!
 
 [Video Link!](https://drive.google.com/file/d/1URcmA0Qz8vbvIaLMtCKAMjzPZ-STu6Bm/view?usp=sharing)
 
+## Links
+
+* GitHub: https://github.com/Kel03-byte/readme-generator
+
+## Screenshots
+
+A screenshot of the terminal in action and the example README file
+
+The Terminal!
+![image](/assets/screenshot1.png)
+
+Example README file!
+![image](/assets/screenshot2.png)
